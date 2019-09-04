@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/shirts', { useNewUrlParser: true });
 
 const  shirtSchema = mongoose.Schema({
-  ProductId: Number,
-  ImageURLs: [String]
+  productId: Number,
+  imageURLs: [String]
 });
 
 const Shirts = mongoose.model('Shirts', shirtSchema);

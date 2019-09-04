@@ -11,14 +11,14 @@ const shirts = [];
 
 for( let i = 1; i <= 100; i++) {
   shirts.push ({
-    ProductId: i,
-    ImageURLs: []
+    productId: i,
+    imageURLs: []
   });
 }
 
 for (let url of imageUrls) {
   const shirtIndex = Math.floor(seedrandom(url)() * 100);
-  shirts[shirtIndex].ImageURLs.push(encodeURI(url));
+  shirts[shirtIndex].imageURLs.push(encodeURI(url));
 }
 
 Shirts.insertMany(shirts, (err, result) => {

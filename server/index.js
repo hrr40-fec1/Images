@@ -9,7 +9,9 @@ let allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Headers', '*');
   next();
  }
+
  app.use(allowCrossDomain);
+ app.use(express.static('public'));
 
 app.get('/api/images/:productId', (req, res) => {
   const { productId } = req.params;

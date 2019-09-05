@@ -4,7 +4,7 @@ const seedrandom = require('seedrandom');
 
 Shirts.deleteMany({}, (err, result) => {
   err && console.log('There was a problem removing items from Shirts:', err);
-  result && console.log(result);
+  result && console.log('urls: ', result);
 });
 
 const shirts = [];

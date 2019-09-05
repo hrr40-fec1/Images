@@ -1,14 +1,17 @@
 {
-  "name": "item-checkout",
-  "version": "1.0",
-  "description": "Item Checkout Component",
-  "author": "Andrew Tjandra",
-  "license": "",
+  "name": "images",
+  "version": "1.0.0",
+  "description": "Images Display Component",
+  "author": "Logan Dudley",
+  "license": "MIT",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "nodemon ./server/index.js"
+  },
   "dependencies": {
+    "express": "^4.17.1",
     "mongoose": "^5.6.12",
     "seedrandom": "^3.0.3"
   },

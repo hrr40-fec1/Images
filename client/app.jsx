@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
 import axios from 'axios'
 import './styles.css';
@@ -55,4 +55,4 @@ class App extends React.Component {
 
 }
 
-ReactDom.render(<App />, document.getElementById('imagesCarousel'));
+ReactDOM.render(<App />, document.getElementById('imagesCarousel'));

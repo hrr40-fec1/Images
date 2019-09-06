@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Slider from 'react-slick';
 import axios from 'axios'
-// import './styles.css';
+import './styles.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 class App extends React.Component {
@@ -10,7 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       imageUrls: [],
-      productId: 14
+      productId: 56
     };
   }
 
@@ -29,17 +31,24 @@ class App extends React.Component {
       });
   }
 
-
-
   render() {
-    const images = this.state.imageUrls.map(imageUrl =>
-      <img src={imageUrl} alt="shirt"  width="400" />
-    );
-      console.log(this.state.imageUrls)
+    const images = this.state.imageUrls.map(imageUrl => {
+      return (
+      <div className='imgDiv'>
+        <img src={imageUrl} alt="shirt" />
+      </div>
+      )
+    });
+
+    const settings = {
+      dots: false
+    };
 
     return (
-      <div >
-        {images.length ? images : 'No Images for Product'}
+      <div className='container'>
+        <Slider {...settings}>
+          {images}
+        </Slider>
       </div>
     );
   }

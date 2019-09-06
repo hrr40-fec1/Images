@@ -1,5 +1,12 @@
+.mainDiv {
+  display: flex;
+}
+
 .container {
-  padding: 40px;
+  /* padding: 40px; */
+  width: 100%;
+  /* flex-grow: 1; */
+  border: 1px solid green;
 }
 
 .slick-slide img {
@@ -7,6 +14,23 @@
   width: 400px;
 }
 
-.imgDiv:focus {
+.imgDiv {
   outline: thin dotted;
+  opacity: 0.2;
+}
+
+.imgDiv:focus {
+  opacity: 1;
+  outline: thin dotted;
+}
+
+.imageNav {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 130px;
+}
+
+.thumbNail {
+  margin: 2px;
 }

@@ -16,6 +16,7 @@ class App extends React.Component {
       productId: 56,
       slideIndex: 0,
     };
+    this.imageSelect = this.imageSelect.bind(this);
   }
 
   componentDidMount() {
@@ -33,11 +34,18 @@ class App extends React.Component {
       });
   }
 
+  imageSelect(slideIndex) {
+    this.setState({slideIndex});
+    this.slider.slickGoTo(slideIndex);
+  }
+
   render() {
     const images = this.state.imageUrls.map(imageUrl => {
       return (
-      <div className='imgDiv'>
-        <img src={`https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/488/${imageUrl}`} alt="shirt" />
+      <div className='imgDiv' key={imageUrl}>
+        <img
+          src={`https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/488/${imageUrl}`}alt="shirt"
+        />
       </div>
       )
     });
@@ -45,14 +53,16 @@ class App extends React.Component {
     const settings = {
       dots: false,
       slidesToShow: 1.5,
-      // afterChange: () => alert('changed')
+      className: 'center',
+      centerMode: true,
+      centerPadding: '60px',
     };
 
     return (
       <div className='mainDiv'>
-        <ImageNav imageUrls={this.state.imageUrls} />
+        <ImageNav imageUrls={this.state.imageUrls} imageSelect={this.imageSelect}/>
         <div className='container'>
-          <Slider {...settings}>
+          <Slider ref={slider => (this.slider = slider)} {...settings}>
             {images}
           </Slider>
         </div>

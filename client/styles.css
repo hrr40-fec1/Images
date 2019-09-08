@@ -4,8 +4,7 @@
 
 .container {
   padding: 40px;
-  width: 100%;
-  /* flex-grow: 1; */
+  width: 75%;
   border: 1px solid green;
 }
 
@@ -15,12 +14,9 @@
 }
 
 .imgDiv {
-  outline: thin dotted;
-  opacity: 0.2;
 }
 
 .imgDiv:focus {
-  opacity: 1;
   outline: thin dotted;
 }
 

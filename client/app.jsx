@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
+import ReactImageMagnify from 'react-image-magnify';
 import axios from 'axios'
 import './styles.css';
 import "slick-carousel/slick/slick.css";
@@ -13,7 +14,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       imageUrls: [],
-      productId: 56,
+      productId: 5,
       slideIndex: 0,
     };
     this.imageSelect = this.imageSelect.bind(this);
@@ -42,9 +43,26 @@ class App extends React.Component {
   render() {
     const images = this.state.imageUrls.map(imageUrl => {
       return (
-      <div className='imgDiv' key={imageUrl}>
-        <img
-          src={`https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/488/${imageUrl}`}alt="shirt"
+      <div className='imgDiv' key={imageUrl}/*  onClick={() => alert('kilct.')} */>
+        <ReactImageMagnify
+          {...{
+            smallImage: {
+              alt: 'shirt',
+              // isFluidWidth: true,
+              width: 488,
+              height: 488,
+              src: `https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/488/${imageUrl}`
+            },
+            largeImage: {
+              src: `https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/1400/${imageUrl}`,
+              width: 1400,
+              height: 1400
+            },
+            lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' },
+
+              enlargedImagePosition: 'over'
+
+          }}
         />
       </div>
       )
@@ -52,10 +70,11 @@ class App extends React.Component {
 
     const settings = {
       dots: false,
-      slidesToShow: 1.5,
+      slidesToShow: 1,
       className: 'center',
       centerMode: true,
       centerPadding: '60px',
+      arrows: false,
     };
 
     return (

@@ -5,7 +5,7 @@
 .container {
   padding: 40px;
   width: 75%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 .slick-slide img {
@@ -14,6 +14,7 @@
 }
 
 .imgDiv {
+  width:50%;
 }
 
 .imgDiv:focus {
@@ -23,7 +24,7 @@
 .imageNav {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 130px;
 }
 

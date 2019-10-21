@@ -18,7 +18,7 @@ app.get('/api/images/:productId', (req, res) => {
   console.log('proid: ', productId);
 
   db.findOne({ productId: productId }, (err, results) => {
-    if (err || results.length === 0) {
+    if (err || !results || results.length === 0) {
       console.log('Error finding shirt', err);
       res.sendStatus(404);
     } else {

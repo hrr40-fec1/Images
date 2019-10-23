@@ -28,4 +28,16 @@ app.get('/api/images/:productId', (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`Images Server listening on ${port}`));
+// server = app.listen(port, () => console.log(`Images Server listening on ${port}`));
+let server;
+const start = () => {
+  server = app.listen(port, () => {
+    console.log(`Images Server listening on ${port}`);
+  });
+};
+const close = server ? server.close : () => {};
+
+module.exports = {
+  start,
+  close,
+};

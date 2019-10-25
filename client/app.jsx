@@ -2,20 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
 import ReactImageMagnify from 'react-image-magnify';
-import axios from 'axios'
+import axios from 'axios';
 import './styles.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ImageNav from './components/ImageNav';
+import Modal from './components/Modal';
+import config from './config';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    const searchParams = new URLSearchParams(window.location.search);
+    console.log(searchParams.get('productid'));
     this.state = {
       imageUrls: [],
-      productId: 5,
+      productId: +searchParams.get('productid'),
       slideIndex: 0,
+      showModal: false,
     };
     this.imageSelect = this.imageSelect.bind(this);
   }
@@ -42,6 +47,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { baseUrl, largeSize, smallSize } = config;
     const images = this.state.imageUrls.map(imageUrl => {
       return (
       <div className="imgDiv" key={imageUrl}/*  onClick={() => alert('kilct.')} */>
@@ -50,14 +56,14 @@ class App extends React.Component {
             smallImage: {
               alt: 'shirt',
               // isFluidWidth: true,
-              width: 488,
-              height: 488,
-              src: `https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/488/${imageUrl}`
+              width: smallSize,
+              height: smallSize,
+              src: `${baseUrl}/${smallSize}/${imageUrl}`,
             },
             largeImage: {
-              src: `https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/1400/${imageUrl}`,
-              width: 1400,
-              height: 1400
+              src: `${baseUrl}/${largeSize}/${imageUrl}`,
+              width: largeSize,
+              height: largeSize,
             },
             lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' },
 
@@ -80,16 +86,16 @@ class App extends React.Component {
 
     return (
       <div className="mainDiv">
-        <ImageNav imageUrls={this.state.imageUrls} imageSelect={this.imageSelect}/>
+        <ImageNav imageUrls={this.state.imageUrls} imageSelect={this.imageSelect} />
         <div className="container">
           <Slider ref={slider => (this.slider = slider)} {...settings}>
             {images}
           </Slider>
         </div>
+        <Modal imageUrls={this.imageUrls} showModal={this.showModal} />
       </div>
     );
   }
-
 }
 
-ReactDOM.render(<App />, document.getElementById("imagesCarousel"));
+ReactDOM.render(<App />, document.getElementById('imagesCarousel'));

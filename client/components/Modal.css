@@ -1,0 +1,17 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: blue;
+  background-color: antiquewhite;
+  width: 100%;
+  z-index: 1000;
+}
+
+.showModal {
+  display: block;
+}
+
+.hideModal {
+  display: none;
+}

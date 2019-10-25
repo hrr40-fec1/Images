@@ -10,7 +10,8 @@
   "scripts": {
     "seed": "node ./database/seed.js",
     "start": "nodemon ./server/index.js",
-    "build": "webpack -d --watch"
+    "build": "webpack -d --watch",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
@@ -35,7 +36,15 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "jest": "^24.9.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
   }

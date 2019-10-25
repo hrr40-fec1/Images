@@ -18,7 +18,7 @@ app.get('/api/images/:productId', (req, res) => {
   console.log('proid: ', productId);
 
   db.findOne({ productId: productId }, (err, results) => {
-    if (err || results.length === 0) {
+    if (err || !results || results.length === 0) {
       console.log('Error finding shirt', err);
       res.sendStatus(404);
     } else {
@@ -28,4 +28,16 @@ app.get('/api/images/:productId', (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`Images Server listening on ${port}`));
+// server = app.listen(port, () => console.log(`Images Server listening on ${port}`));
+let server;
+const start = () => {
+  server = app.listen(port, () => {
+    console.log(`Images Server listening on ${port}`);
+  });
+};
+const close = server ? server.close : () => {};
+
+module.exports = {
+  start,
+  close,
+};

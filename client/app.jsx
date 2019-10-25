@@ -4,8 +4,8 @@ import Slider from 'react-slick';
 import ReactImageMagnify from 'react-image-magnify';
 import axios from 'axios'
 import './styles.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import ImageNav from './components/ImageNav';
 
 
@@ -21,12 +21,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/images/${this.state.productId}`)
+    const { productId } = this.state;
+    axios.get(`/api/images/${productId}`)
       .then((response) => {
         // handle success
         console.log(response);
         this.setState({
-          imageUrls: response.data
+          imageUrls: response.data,
         });
       })
       .catch((error) => {
@@ -36,14 +37,14 @@ class App extends React.Component {
   }
 
   imageSelect(slideIndex) {
-    this.setState({slideIndex});
+    this.setState({ slideIndex });
     this.slider.slickGoTo(slideIndex);
   }
 
   render() {
     const images = this.state.imageUrls.map(imageUrl => {
       return (
-      <div className='imgDiv' key={imageUrl}/*  onClick={() => alert('kilct.')} */>
+      <div className="imgDiv" key={imageUrl}/*  onClick={() => alert('kilct.')} */>
         <ReactImageMagnify
           {...{
             smallImage: {
@@ -78,9 +79,9 @@ class App extends React.Component {
     };
 
     return (
-      <div className='mainDiv'>
+      <div className="mainDiv">
         <ImageNav imageUrls={this.state.imageUrls} imageSelect={this.imageSelect}/>
-        <div className='container'>
+        <div className="container">
           <Slider ref={slider => (this.slider = slider)} {...settings}>
             {images}
           </Slider>
@@ -91,4 +92,4 @@ class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('imagesCarousel'));
+ReactDOM.render(<App />, document.getElementById("imagesCarousel"));

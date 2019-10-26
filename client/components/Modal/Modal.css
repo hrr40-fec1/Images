@@ -41,7 +41,7 @@ button:focus {
 }
 
 .btn-close {
-  background-image: url("../buttons/cancel-button.svg");
+  background-image: url("../../buttons/cancel-button.svg");
 }
 
 .btn-close:focus::before {
@@ -57,7 +57,7 @@ button:focus {
 }
 
 .btn-arrow {
-  background-image: url("../buttons/arrow.svg");
+  background-image: url("../../buttons/arrow.svg");
 }
 
 .btn-arrow-left {
@@ -67,7 +67,7 @@ button:focus {
 .btn-arrow:focus {
   outline: none;
 }
-
+v
 .btn-arrow:focus::before {
   content: '';
   display: block;
@@ -80,6 +80,24 @@ button:focus {
   border: 3px dashed #000;
 }
 
+.img-main {
+  width: 700px;
+  height: 700px;
+}
 
+.img-bottom-nav {
+  display: flex;
+}
+
+.img-bottom-thumb {
+  /* display: inline-block; */
+  flex-direction: row;
+  width: 64px;
+  height: 64px;
+  opacity: 0.5;
+}
+.thumb-selected {
+  opacity: 1;
+}
 
 

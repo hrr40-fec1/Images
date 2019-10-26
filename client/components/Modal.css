@@ -1,9 +1,11 @@
+
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   color: blue;
-  background-color: antiquewhite;
+  background-color: rgb(225, 208, 208);
   width: 100%;
   height: 100%;
   z-index: 1000;
@@ -18,21 +20,66 @@
 }
 
 button {
-  width: 75px;
-  height: 75px;
-  padding: 0;
-  margin: 0;
   border: none;
+  --btn-size: 64px;
+}
+button:hover {
+  cursor: pointer;
 }
 
-.btn-close {
-  background-color: rgba(0, 0, 0, 0);
-  background-image: url("https://fec1targetclone.s3-us-west-1.amazonaws.com/buttons/cancel-button.png");
-  height: 64px;
-  width: 64px;
-}
-
-.btn-close:focus {
+button:focus {
   outline: 1px dashed black;
   outline-offset: .5em;
 }
+
+.btn {
+  clip-path: circle(45.836% at center);
+  background-size: var(--btn-size);
+  height: var(--btn-size);
+  width: var(--btn-size);
+  position: relative;
+}
+
+.btn-close {
+  background-image: url("../buttons/cancel-button.svg");
+}
+
+.btn-close:focus::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  right: 12%;
+  bottom: 12%;
+  border-radius: 50%;
+  border: 3px dashed #FFF;
+}
+
+.btn-arrow {
+  background-image: url("../buttons/arrow.svg");
+}
+
+.btn-arrow-left {
+  transform: scaleX(-1);
+}
+
+.btn-arrow:focus {
+  outline: none;
+}
+
+.btn-arrow:focus::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  right: 12%;
+  bottom: 12%;
+  border-radius: 50%;
+  border: 3px dashed #000;
+}
+
+
+
+

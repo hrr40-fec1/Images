@@ -89,12 +89,14 @@ class App extends React.Component {
       arrows: false,
     };
 
+    const { imageUrls, showModal } = this.state;
+
     return (
       <div className="mainDiv">
-        <ImageNav imageUrls={this.state.imageUrls} imageSelect={this.imageSelect} />
+        <ImageNav imageUrls={imageUrls} imageSelect={this.imageSelect} />
         <div className="container" onClick={this.toggleModal}>
           <Slider
-            ref={slider => (this.slider = slider)}
+            ref={(slider) => (this.slider = slider)}
             {...settings}
           >
             {images}
@@ -102,8 +104,8 @@ class App extends React.Component {
         </div>
         <Modal
           toggleModal={this.toggleModal}
-          imageUrls={this.state.imageUrls}
-          showModal={this.state.showModal}
+          imageUrls={imageUrls}
+          showModal={showModal}
         />
       </div>
     );

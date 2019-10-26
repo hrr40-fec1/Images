@@ -5,6 +5,7 @@
   color: blue;
   background-color: antiquewhite;
   width: 100%;
+  height: 100%;
   z-index: 1000;
 }
 
@@ -14,4 +15,24 @@
 
 .hideModal {
   display: none;
+}
+
+button {
+  width: 75px;
+  height: 75px;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.btn-close {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("https://fec1targetclone.s3-us-west-1.amazonaws.com/buttons/cancel-button.png");
+  height: 64px;
+  width: 64px;
+}
+
+.btn-close:focus {
+  outline: 1px dashed black;
+  outline-offset: .5em;
 }

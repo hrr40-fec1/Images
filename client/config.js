@@ -1,5 +1,3 @@
-export default {
-  baseUrl: 'https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts',
-  smallSize: 488,
-  largeSize: 1400,
-};
+export const baseUrl = 'https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts';
+export const smallSize = 488;
+export const largeSize = 1400;

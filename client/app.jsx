@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ImageNav from './components/ImageNav';
 import Modal from './components/Modal';
-import config from './config';
+import { baseUrl, largeSize, smallSize } from './config';
 
 
 class App extends React.Component {
@@ -23,6 +23,7 @@ class App extends React.Component {
       showModal: false,
     };
     this.imageSelect = this.imageSelect.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -46,8 +47,12 @@ class App extends React.Component {
     this.slider.slickGoTo(slideIndex);
   }
 
+  toggleModal() {
+    this.setState((prevState) => ({ showModal: !prevState.showModal }));
+  }
+
   render() {
-    const { baseUrl, largeSize, smallSize } = config;
+    // const { baseUrl, largeSize, smallSize } = config;
     const images = this.state.imageUrls.map(imageUrl => {
       return (
       <div className="imgDiv" key={imageUrl}/*  onClick={() => alert('kilct.')} */>
@@ -87,12 +92,19 @@ class App extends React.Component {
     return (
       <div className="mainDiv">
         <ImageNav imageUrls={this.state.imageUrls} imageSelect={this.imageSelect} />
-        <div className="container">
-          <Slider ref={slider => (this.slider = slider)} {...settings}>
+        <div className="container" onClick={this.toggleModal}>
+          <Slider
+            ref={slider => (this.slider = slider)}
+            {...settings}
+          >
             {images}
           </Slider>
         </div>
-        <Modal imageUrls={this.imageUrls} showModal={this.showModal} />
+        <Modal
+          toggleModal={this.toggleModal}
+          imageUrls={this.state.imageUrls}
+          showModal={this.state.showModal}
+        />
       </div>
     );
   }

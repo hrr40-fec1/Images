@@ -1,4 +1,5 @@
 import React from 'react';
+import { baseUrl, smallSize } from '../config';
 
 const ImageNav = ({ imageSelect, imageUrls }) => {
   return (
@@ -8,7 +9,7 @@ const ImageNav = ({ imageSelect, imageUrls }) => {
           <img
             className='thumbNail'
             onClick={() => imageSelect(slideIndex)}
-            src={`https://fec1targetclone.s3-us-west-1.amazonaws.com/tshirts/488/${imageUrl}`}
+            src={`${baseUrl}/${smallSize}/${imageUrl}`}
             alt='shirt'
             width='117'
             key={imageUrl}

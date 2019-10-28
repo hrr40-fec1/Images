@@ -3,7 +3,7 @@ import { baseUrl, largeSize } from '../../config';
 
 const MainImage = function MainImage({ url, toggleModal, selectByArrow }) {
   return (
-    <div>
+    <div id="container-modal">
       <button
         type="button"
         className="btn btn-arrow btn-arrow-left"

@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     // const { baseUrl, largeSize, smallSize } = config;
     const images = this.state.imageUrls.map(imageUrl => {
-      console.log({ imageUrl })
+      console.log({ imageUrl });
       return (
         <div className="imgDiv" key={imageUrl}>
           <ReactImageMagnify

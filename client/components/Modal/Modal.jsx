@@ -34,6 +34,10 @@ class Modal extends React.Component {
     });
   }
 
+  //TODO
+  // add keypress/up listener
+  // listen for left/right to navigate and ecs to close modal
+
   render() {
 
     const { showModal, toggleModal, imageUrls } = this.props;

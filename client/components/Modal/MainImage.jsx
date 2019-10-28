@@ -10,13 +10,12 @@ const MainImage = function MainImage({ url, toggleModal, selectByArrow }) {
         name="left-arrow"
         onClick={() => selectByArrow('left')}
         aria-label="select left"
-        // tabIndex="0"
       />
       <img
         src={`${baseUrl}/${largeSize}/${url}`}
         alt="Imagine this is a shirt"
         className="img-main"
-        />
+      />
       <button
         type="button"
         className="btn btn-arrow"

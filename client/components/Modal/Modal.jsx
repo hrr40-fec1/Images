@@ -53,7 +53,6 @@ class Modal extends React.Component {
           slideIndex={slideIndex}
           selectByThumb={this.selectByThumb}
         />
-
       </div>
     );
   }

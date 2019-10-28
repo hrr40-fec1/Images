@@ -19,7 +19,7 @@ app.get('/api/images/:productId', (req, res) => {
     if (err || !results || results.length === 0) {
       res.sendStatus(404);
     } else {
-      res.send(results.imageURLs);
+      res.send(results.imageURLs.slice(0, 5));
     }
   });
 });

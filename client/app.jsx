@@ -54,30 +54,31 @@ class App extends React.Component {
   render() {
     // const { baseUrl, largeSize, smallSize } = config;
     const images = this.state.imageUrls.map(imageUrl => {
+      console.log({ imageUrl })
       return (
-      <div className="imgDiv" key={imageUrl}/*  onClick={() => alert('kilct.')} */>
-        <ReactImageMagnify
-          {...{
-            smallImage: {
-              alt: 'shirt',
-              // isFluidWidth: true,
-              width: smallSize,
-              height: smallSize,
-              src: `${baseUrl}/${smallSize}/${imageUrl}`,
-            },
-            largeImage: {
-              src: `${baseUrl}/${largeSize}/${imageUrl}`,
-              width: largeSize,
-              height: largeSize,
-            },
-            lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' },
+        <div className="imgDiv" key={imageUrl}>
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: 'shirt',
+                // isFluidWidth: true,
+                width: smallSize,
+                height: smallSize,
+                src: `${baseUrl}/${smallSize}/${imageUrl}`,
+              },
+              largeImage: {
+                src: `${baseUrl}/${largeSize}/${imageUrl}`,
+                width: largeSize,
+                height: largeSize,
+              },
+              lensStyle: { backgroundColor: 'rgba(0,0,0,.6)' },
 
-              enlargedImagePosition: 'over'
+                enlargedImagePosition: 'over'
 
-          }}
-        />
-      </div>
-      )
+            }}
+          />
+        </div>
+      );
     });
 
     const settings = {

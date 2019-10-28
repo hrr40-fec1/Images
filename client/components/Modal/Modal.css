@@ -67,7 +67,7 @@ button:focus {
 .btn-arrow:focus {
   outline: none;
 }
-v
+
 .btn-arrow:focus::before {
   content: '';
   display: block;
@@ -85,13 +85,7 @@ v
   height: 700px;
 }
 
-.img-bottom-nav {
-  display: flex;
-}
-
 .img-bottom-thumb {
-  /* display: inline-block; */
-  flex-direction: row;
   width: 64px;
   height: 64px;
   opacity: 0.5;

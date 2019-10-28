@@ -7,12 +7,12 @@ const BottomNav = function BottomNav({ urls, selectByThumb, slideIndex }) {
       {
         urls.map((url, idx) => {
           return (
-            <img
-              className={`img-bottom-thumb ${(idx === slideIndex) && "thumb-selected"}`}
-              src={`${baseUrl}/${smallSize}/${url}`}
-              alt="Imagine a small shirt"
+            <button
+              type="button"
               onClick={() => selectByThumb(idx)}
               // tabIndex="0"
+              className={`img-bottom-thumb ${(idx === slideIndex) && "thumb-selected"}`}
+              style={{ backgroundImage: `url(${baseUrl}/${smallSize}/${url})`, backgroundSize: 'cover' }}
             />
           );
         })

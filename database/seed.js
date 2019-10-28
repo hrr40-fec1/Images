@@ -9,10 +9,10 @@ Shirts.deleteMany({}, (err, result) => {
 
 const shirts = [];
 
-for( let i = 1; i <= 100; i++) {
-  shirts.push ({
+for ( let i = 1; i <= 100; i += 1) {
+  shirts.push({
     productId: i,
-    imageURLs: []
+    imageURLs: [],
   });
 }
 

@@ -3,7 +3,7 @@ import { baseUrl, smallSize } from '../config';
 
 const ImageNav = ({ imageSelect, imageUrls }) => {
   return (
-    <div className='imageNav'>
+    <div className="imageNav">
       {imageUrls.map((imageUrl, slideIndex) => {
         return (
           <img
@@ -14,10 +14,10 @@ const ImageNav = ({ imageSelect, imageUrls }) => {
             width='117'
             key={imageUrl}
           />
-        )
+        );
       })}
     </div>
-  )
+  );
 };
 
 export default ImageNav;

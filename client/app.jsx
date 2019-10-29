@@ -7,6 +7,7 @@ import './styles.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ImageNav from './components/ImageNav';
+// import Favorite from './components/Favorite';
 import Modal from './components/Modal/Modal';
 import { baseUrl, largeSize, smallSize } from './config';
 

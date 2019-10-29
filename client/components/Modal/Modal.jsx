@@ -34,7 +34,7 @@ class Modal extends React.Component {
     });
   }
 
-  //TODO
+  // TODO:
   // add keypress/up listener
   // listen for left/right to navigate and ecs to close modal
 
